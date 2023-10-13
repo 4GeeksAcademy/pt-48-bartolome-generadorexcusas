@@ -1,43 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generador de Exusas</title>
+    <title>Generador de Excusas</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      #generadorExcusas {
+        text-align: center;
+      }
+      #textoExcusa {
+        font-size: 1.5rem;
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
-    <div>
-      <button id="generar" onclick="generarExcusa()">Generar Excusa</button>
+    <div id="generadorExcusas">
+      <p id="textoExcusa"></p>
+      <button id="botonGenerar" onclick="nuevaExcusa()">
+        GENERADOR DE EXCUSAS
+      </button>
     </div>
+
+    <script>
+      function nuevaExcusa() {
+        const palabras = [
+          ['El perro', 'Mi abuela', 'Su tortuga', 'Mi pájaro'],
+          ['se comió', 'orinó en', 'aplastó', 'rompió'],
+          ['mis deberes', 'las llaves', 'el coche'],
+          [
+            'antes de clase',
+            'justo a tiempo',
+            'cuando acabé',
+            'durante el almuerzo',
+            'mientras yo estaba rezando',
+          ],
+        ];
+
+        //Esto creo que se puede simplificar más, pero bueno, creo que se entiende también así.
+
+        const textoExcusa = document.getElementById('textoExcusa');
+
+        function generarExcusa() {
+          const sujeto =
+            palabras[0][Math.floor(Math.random() * palabras[0].length)];
+          const verbo =
+            palabras[1][Math.floor(Math.random() * palabras[1].length)];
+          const predicado =
+            palabras[2][Math.floor(Math.random() * palabras[2].length)];
+          const circunstancial =
+            palabras[3][Math.floor(Math.random() * palabras[3].length)];
+          const excusa = `${sujeto} ${verbo} ${predicado} ${circunstancial}`;
+          return excusa;
+        }
+
+        const nuevaExcusaGenerada = generarExcusa();
+
+        //Aquí entiendo que no hace falta poner "document.getElementbyID..." porque lo de textoExcusa ya lo especifico más arriba y se supone que ya con esto de abajo hace una referencia directa.
+
+        textoExcusa.innerHTML = nuevaExcusaGenerada;
+      }
+
+      window.onload = nuevaExcusa;
+
+      // PERDÓN POR TANTO COMENTARIO :D
+    </script>
   </body>
 </html>
-
-<script>
-
-    function obtenerpalabrasAleatorias(){
-      const palabras = ['El perro', 'Mi abuela', 'Su tortuga', 'Mi pájaro'],
-            ['se comió', 'orinó en', 'aplastó', 'rompió'],
-            ['mis deberes', 'las llaves', 'el coche'],
-            [
-              'antes de clase',
-              'justo a tiempo',
-              'cuando acabé',
-              'durante el almuerzo',
-              'mientras yo estaba rezando',
-            ];
-            return palabras[]
-
-    }
-
-    function MostrarpalabrasAleatorias(){
-  const sujeto = palabras[0][Math.floor(Math.random() * palabras[0].length)];
-            const verbo =
-              palabras[1][Math.floor(Math.random() * palabras[1].length)];
-            const predicado =
-              palabras[2][Math.floor(Math.random() * palabras[2].length)];
-            const circunstancial =
-              palabras[3][Math.floor(Math.random() * palabras[3].length)];
-            const palabras = `${sujeto} ${verbo} ${predicado} ${circunstancial}`;
-            return palabras;
-    }
-</script>
