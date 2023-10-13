@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Exusas</title>
+  </head>
+  <body>
+    <div>
+      <button id="generar" onclick="generarExcusa()">Generar Excusa</button>
+    </div>
+  </body>
+</html>
+
+<script>
+
+    function obtenerpalabrasAleatorias(){
+      const palabras = ['El perro', 'Mi abuela', 'Su tortuga', 'Mi pájaro'],
+            ['se comió', 'orinó en', 'aplastó', 'rompió'],
+            ['mis deberes', 'las llaves', 'el coche'],
+            [
+              'antes de clase',
+              'justo a tiempo',
+              'cuando acabé',
+              'durante el almuerzo',
+              'mientras yo estaba rezando',
+            ];
+            return palabras[]
+
+    }
+
+    function MostrarpalabrasAleatorias(){
+  const sujeto = palabras[0][Math.floor(Math.random() * palabras[0].length)];
+            const verbo =
+              palabras[1][Math.floor(Math.random() * palabras[1].length)];
+            const predicado =
+              palabras[2][Math.floor(Math.random() * palabras[2].length)];
+            const circunstancial =
+              palabras[3][Math.floor(Math.random() * palabras[3].length)];
+            const palabras = `${sujeto} ${verbo} ${predicado} ${circunstancial}`;
+            return palabras;
+    }
+</script>
